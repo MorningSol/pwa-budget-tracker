@@ -4,10 +4,9 @@ const DATA_CACHE_NAME = 'data-cache-v1';
 const FILES_TO_CACHE = [
     "./index.html",
     "./js/index.js",
+    "./js/idb.js",
     "./css/styles.css",
-    "/icons/icon-192x192.png",
-    "/icons/icon-512x512.png",
-
+    "./icons/icon-192x192.png"
 ];
 
 
@@ -40,7 +39,7 @@ self.addEventListener('activate', function(evt) {
 });
 
 self.addEventListener('fetch', function(evt) {
-    if (evt.request.url.includes('/api/tansaction')) {
+    if (evt.request.url.includes('/api/')) {
         evt.respondWith(
           caches
             .open(DATA_CACHE_NAME)
